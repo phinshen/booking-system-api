@@ -16,7 +16,7 @@ function applyCors(req, res) {
   const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://your-frontend-app.vercel.app", // Replace with your actual frontend URL
+    "https://tpx-hairstudio-bookingsystem.vercel.app/",
   ];
 
   const origin = req.headers.origin;
@@ -87,12 +87,10 @@ module.exports = async (req, res) => {
             return res.status(200).json(result.rows);
           } catch (err) {
             console.error("Database error:", err);
-            return res
-              .status(500)
-              .json({
-                error: "Failed to fetch bookings",
-                details: err.message,
-              });
+            return res.status(500).json({
+              error: "Failed to fetch bookings",
+              details: err.message,
+            });
           } finally {
             client.release();
           }
@@ -141,12 +139,10 @@ module.exports = async (req, res) => {
             return res.status(201).json(result.rows[0]);
           } catch (err) {
             console.error("Database error:", err);
-            return res
-              .status(500)
-              .json({
-                error: "Failed to create booking",
-                details: err.message,
-              });
+            return res.status(500).json({
+              error: "Failed to create booking",
+              details: err.message,
+            });
           } finally {
             client.release();
           }
@@ -244,12 +240,10 @@ module.exports = async (req, res) => {
             });
           } catch (err) {
             console.error("Database error:", err);
-            return res
-              .status(500)
-              .json({
-                error: "Failed to update booking",
-                details: err.message,
-              });
+            return res.status(500).json({
+              error: "Failed to update booking",
+              details: err.message,
+            });
           } finally {
             client.release();
           }
@@ -272,12 +266,10 @@ module.exports = async (req, res) => {
             });
           } catch (err) {
             console.error("Database error:", err);
-            return res
-              .status(500)
-              .json({
-                error: "Failed to delete booking",
-                details: err.message,
-              });
+            return res.status(500).json({
+              error: "Failed to delete booking",
+              details: err.message,
+            });
           } finally {
             client.release();
           }
